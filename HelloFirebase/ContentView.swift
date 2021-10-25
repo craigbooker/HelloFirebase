@@ -6,11 +6,28 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
 
 struct ContentView: View {
+    
+    private var db: Firestore
+    @State private var title: String = ""
+    
+    init() {
+        db = Firestore.firestore()
+    }
+    
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            TextField("Enter task", text: $title)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Button("Save") {
+                
+            }
+            Spacer()
+        }.padding()
     }
 }
 
